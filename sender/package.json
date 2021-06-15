@@ -2,14 +2,27 @@
   "name": "sender",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cat ../sample_event_stream.log | node index.js"
+    "test": "mocha test/**/*spec.js",
+    "coverage": "nyc --reporter=text mocha test/**/*spec.js",
+    "start": "cat ../sample_event_stream.log | node src/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "split": "^1.0.1"
+    "split": "^1.0.1",
+    "ws": "^7.4.6"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.18",
+    "@types/mocha": "^8.2.2",
+    "@types/should": "^13.0.0",
+    "@types/sinon": "^10.0.2",
+    "chai": "^4.3.4",
+    "mocha": "^9.0.0",
+    "nyc": "^15.1.0",
+    "should": "^13.2.3",
+    "sinon": "^11.1.1"
   }
 }

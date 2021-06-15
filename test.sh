@@ -1,8 +1,8 @@
 #!/bin/sh
 echo 'Testing started ..'
-echo 'Hold on for one or two minutes'
-node ./receiver/index > received_event_stream.log & RECEIVER_PID=$!
-cat sample_event_stream.log | node ./sender/index
+echo 'Hold on few minutes'
+node ./receiver/src/index.js > received_event_stream.log & RECEIVER_PID=$!
+cat sample_event_stream.log | node ./sender/src/index.js
 kill -15 $RECEIVER_PID
 sort sample_event_stream.log > sample_event_stream.log.sort
 sort received_event_stream.log  > received_event_stream.log.sort
